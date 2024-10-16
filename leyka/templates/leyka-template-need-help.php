@@ -102,6 +102,8 @@ $another_amount_title = count($template_data['currencies'][$currency_id]['amount
 
             </div>
 
+            <?php do_action( 'leyka_form_section_currencies_middle' ); ?>
+
             <?php foreach($template_data['currencies'] as $currency_id => $currency_data) {?>
 
                 <div class="currency-tab currency-<?php echo esc_attr( $currency_id );?> <?php echo esc_attr( $currency_id !== $template_data['main_currency_id'] ? 'leyka-hidden' : '' ); ?>">
@@ -620,6 +622,8 @@ $another_amount_title = count($template_data['currencies'][$currency_id]['amount
             </div>
 
         </form>
+
+        <?php do_action( 'leyka_payment_form_after' ); ?>
 
         <?php if($template_data['platform_signature_on_form_enabled']) {?>
             <div class="section section--signature">
