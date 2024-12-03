@@ -144,7 +144,7 @@ class Leyka_Donation_Management extends Leyka_Singleton {
             9 => sprintf(
                 /* translators: %s: Publish box date format, see http://php.net/date. */
                 __('Donation scheduled for: <strong>%1$s</strong>.', 'leyka'),
-                date_i18n(__( 'M j, Y @ G:i'), strtotime(get_post()->post_date))
+                date_i18n(__( 'M j, Y @ G:i', 'leyka'), strtotime(get_post()->post_date))
             ),
             10 => __('Donation draft updated.', 'leyka'),
         ];
@@ -1672,7 +1672,7 @@ class Leyka_Donation_Management extends Leyka_Singleton {
 
             <?php $gateway = leyka_get_gateway_by_id($donation->gateway_id);
             if($gateway && method_exists($gateway, 'display_donation_specific_data_fields')) { ?>
-                <div class="leyka-ddata-string"><?php echo wp_kses_post( $gateway->display_donation_specific_data_fields($donation) ); ?></div>
+                <div class="leyka-ddata-string"><?php $gateway->display_donation_specific_data_fields($donation) ?></div>
             <?php }?>
 
             <?php if ($donation->is_init_recurring_donation || $donation->init_recurring_donation_id) { ?>
