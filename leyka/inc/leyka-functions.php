@@ -214,7 +214,6 @@ if ( ! function_exists( 'leyka_kses_allowed_html' ) ) {
                     'id'           => true,
                     'fill'         => true,
                     'full-rule'    => true,
-                    'id'           => true,
                     'stroke'       => true,
                     'stroke-width' => true,
                     'transform'    => true,
@@ -2625,7 +2624,7 @@ if( !function_exists('leyka_save_option') ) {
 }
 
 if( !function_exists('leyka_save_commission_field') ) {
-    /** An utility function to save the Gateways commission fields. For "leyka_save_custom_option-commission" hook only. */
+    /** A utility function to save the Gateways commission fields. For "leyka_save_custom_option-commission" hook only. */
     function leyka_save_commission_field() {
         if( !empty($_POST['leyka_commission']) && is_array($_POST['leyka_commission']) ) {
 
